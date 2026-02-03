@@ -14,8 +14,14 @@ namespace Calculadora
 
         private void calculadoraSimpleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCalculadora calculadoraSimple= new frmCalculadora();
+            frmCalculadora calculadoraSimple = new frmCalculadora();
             calculadoraSimple.Show();
+        }
+
+        private void burbujaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frnBurbuja burbuja=new frnBurbuja();
+            burbuja.Show();
         }
     }
 }
