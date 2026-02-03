@@ -32,8 +32,15 @@ namespace Calculadora
                 double a = 0, b = 0, resultado = 0;
                 a = Convert.ToDouble(this.txtVariableA.Text);
                 b = Convert.ToDouble(this.txtVariableB.Text);
+                if (rdbSuma.Checked)
                 resultado = a + b;
-                MessageBox.Show("El resultado es: " + resultado.ToString(), "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (rdbResta.Checked)
+                    resultado = a - b;
+                if (rdbMultiplicar.Checked)
+                    resultado = a * b;
+                if (rdbDivision.Checked)
+                    resultado = a / b;
+                    MessageBox.Show("El resultado es: " + resultado.ToString(), "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 reset();
             }
             catch (Exception)

@@ -35,10 +35,10 @@
             btnCalcular = new Button();
             btnReset = new Button();
             groupBox1 = new GroupBox();
-            radioButton1 = new RadioButton();
-            radioButton2 = new RadioButton();
-            radioButton3 = new RadioButton();
-            radioButton4 = new RadioButton();
+            this.rdbSuma = new RadioButton();
+            this.rdbResta = new RadioButton();
+            rdbMultiplicar = new RadioButton();
+            this.rdbDivision = new RadioButton();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -98,10 +98,10 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(radioButton4);
-            groupBox1.Controls.Add(radioButton3);
-            groupBox1.Controls.Add(radioButton2);
-            groupBox1.Controls.Add(radioButton1);
+            groupBox1.Controls.Add(this.rdbDivision);
+            groupBox1.Controls.Add(rdbMultiplicar);
+            groupBox1.Controls.Add(this.rdbResta);
+            groupBox1.Controls.Add(this.rdbSuma);
             groupBox1.Location = new Point(273, 23);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(200, 127);
@@ -109,50 +109,50 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Operaciones";
             // 
-            // radioButton1
+            // rdbSuma
             // 
-            radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(20, 22);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(55, 19);
-            radioButton1.TabIndex = 0;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "Suma";
-            radioButton1.UseVisualStyleBackColor = true;
+            this.rdbSuma.AutoSize = true;
+            this.rdbSuma.Location = new Point(20, 22);
+            this.rdbSuma.Name = "rdbSuma";
+            this.rdbSuma.Size = new Size(55, 19);
+            this.rdbSuma.TabIndex = 0;
+            this.rdbSuma.TabStop = true;
+            this.rdbSuma.Text = "Suma";
+            this.rdbSuma.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rdbResta
             // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(20, 47);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(94, 19);
-            radioButton2.TabIndex = 1;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "radioButton2";
-            radioButton2.UseVisualStyleBackColor = true;
-            radioButton2.CheckedChanged += radioButton2_CheckedChanged;
+            this.rdbResta.AutoSize = true;
+            this.rdbResta.Location = new Point(20, 47);
+            this.rdbResta.Name = "rdbResta";
+            this.rdbResta.Size = new Size(53, 19);
+            this.rdbResta.TabIndex = 1;
+            this.rdbResta.TabStop = true;
+            this.rdbResta.Text = "Resta";
+            this.rdbResta.UseVisualStyleBackColor = true;
+            this.rdbResta.CheckedChanged += this.radioButton2_CheckedChanged;
             // 
-            // radioButton3
+            // rdbMultiplicar
             // 
-            radioButton3.AutoSize = true;
-            radioButton3.Location = new Point(20, 70);
-            radioButton3.Name = "radioButton3";
-            radioButton3.Size = new Size(94, 19);
-            radioButton3.TabIndex = 2;
-            radioButton3.TabStop = true;
-            radioButton3.Text = "radioButton3";
-            radioButton3.UseVisualStyleBackColor = true;
+            rdbMultiplicar.AutoSize = true;
+            rdbMultiplicar.Location = new Point(20, 70);
+            rdbMultiplicar.Name = "rdbMultiplicar";
+            rdbMultiplicar.Size = new Size(101, 19);
+            rdbMultiplicar.TabIndex = 2;
+            rdbMultiplicar.TabStop = true;
+            rdbMultiplicar.Text = "Multiplicacion";
+            rdbMultiplicar.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // rdbDivision
             // 
-            radioButton4.AutoSize = true;
-            radioButton4.Location = new Point(20, 95);
-            radioButton4.Name = "radioButton4";
-            radioButton4.Size = new Size(94, 19);
-            radioButton4.TabIndex = 3;
-            radioButton4.TabStop = true;
-            radioButton4.Text = "radioButton4";
-            radioButton4.UseVisualStyleBackColor = true;
+            this.rdbDivision.AutoSize = true;
+            this.rdbDivision.Location = new Point(20, 95);
+            this.rdbDivision.Name = "rdbDivision";
+            this.rdbDivision.Size = new Size(67, 19);
+            this.rdbDivision.TabIndex = 3;
+            this.rdbDivision.TabStop = true;
+            this.rdbDivision.Text = "Division";
+            this.rdbDivision.UseVisualStyleBackColor = true;
             // 
             // frmCalculadora
             // 
@@ -183,9 +183,12 @@
         private Button btnCalcular;
         private Button btnReset;
         private GroupBox groupBox1;
+        private RadioButton rdbSuma;
+        private RadioButton rdbResta;
         private RadioButton radioButton2;
         private RadioButton radioButton1;
         private RadioButton radioButton4;
-        private RadioButton radioButton3;
+        private RadioButton rdbMultiplicar;
+        private RadioButton rdbDivision;
     }
 }
