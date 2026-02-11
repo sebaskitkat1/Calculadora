@@ -31,6 +31,10 @@
             components = new System.ComponentModel.Container();
             lblHora = new Label();
             trmHora = new System.Windows.Forms.Timer(components);
+            mnsAlarma = new MenuStrip();
+            establecerToolStripMenuItem = new ToolStripMenuItem();
+            alarma1ToolStripMenuItem = new ToolStripMenuItem();
+            mnsAlarma.SuspendLayout();
             SuspendLayout();
             // 
             // lblHora
@@ -47,7 +51,30 @@
             // 
             trmHora.Enabled = true;
             trmHora.Interval = 1000;
-            trmHora.Tick += this.trmHora_Tick;
+            trmHora.Tick += trmHora_Tick;
+            // 
+            // mnsAlarma
+            // 
+            mnsAlarma.Items.AddRange(new ToolStripItem[] { establecerToolStripMenuItem });
+            mnsAlarma.Location = new Point(0, 0);
+            mnsAlarma.Name = "mnsAlarma";
+            mnsAlarma.Size = new Size(445, 24);
+            mnsAlarma.TabIndex = 1;
+            mnsAlarma.Text = "menuStrip1";
+            // 
+            // establecerToolStripMenuItem
+            // 
+            establecerToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { alarma1ToolStripMenuItem });
+            establecerToolStripMenuItem.Name = "establecerToolStripMenuItem";
+            establecerToolStripMenuItem.Size = new Size(75, 20);
+            establecerToolStripMenuItem.Text = "Establecer ";
+            // 
+            // alarma1ToolStripMenuItem
+            // 
+            alarma1ToolStripMenuItem.Name = "alarma1ToolStripMenuItem";
+            alarma1ToolStripMenuItem.Size = new Size(180, 22);
+            alarma1ToolStripMenuItem.Text = "Alarma 1";
+            alarma1ToolStripMenuItem.Click += alarma1ToolStripMenuItem_Click;
             // 
             // frmTemporizadores
             // 
@@ -55,8 +82,13 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(445, 144);
             Controls.Add(lblHora);
+            Controls.Add(mnsAlarma);
+            MainMenuStrip = mnsAlarma;
             Name = "frmTemporizadores";
             Text = "Reloj";
+            Load += frmTemporizadores_Load;
+            mnsAlarma.ResumeLayout(false);
+            mnsAlarma.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -65,5 +97,8 @@
 
         private Label lblHora;
         private System.Windows.Forms.Timer trmHora;
+        private MenuStrip mnsAlarma;
+        private ToolStripMenuItem establecerToolStripMenuItem;
+        private ToolStripMenuItem alarma1ToolStripMenuItem;
     }
 }
