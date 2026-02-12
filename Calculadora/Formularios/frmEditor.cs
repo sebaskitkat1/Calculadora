@@ -13,6 +13,8 @@ namespace Calculadora.Formularios
     {
         Boolean saved = false;
         string path = "";
+        int contadorPalabras = 0;
+        string texto = "";
         public frmEditor()
         {
             InitializeComponent();
@@ -20,7 +22,10 @@ namespace Calculadora.Formularios
 
         private void rtbEditor_TextChanged(object sender, EventArgs e)
         {
-
+             texto = rtbEditor.Text;
+            string[] palabras = texto.Split(new char[] { ' ', '\n', '\r', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+            contadorPalabras = palabras.Length;
+            this.tssStatus.Text = $"Numero de palabras: {contadorPalabras}";
         }
 
         private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -37,7 +42,7 @@ namespace Calculadora.Formularios
             if (!saved)
             {
                 guardar();
-                saved=true;
+                saved = true;
             }
             else
             {
@@ -52,7 +57,7 @@ namespace Calculadora.Formularios
         {
             if (this.sfdEditor.ShowDialog() == DialogResult.OK)
             {
-                path= sfdEditor.FileName;
+                path = sfdEditor.FileName;
                 using (StreamWriter archivo = new StreamWriter(path))
                 {
                     archivo.Write(rtbEditor.Text);
@@ -62,7 +67,7 @@ namespace Calculadora.Formularios
 
         private void guardarComoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-        guardar();
+            guardar();
         }
 
         private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -70,6 +75,25 @@ namespace Calculadora.Formularios
             rtbEditor.Clear();
             path = "";
             saved = false;
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void stsEditor_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void tssStatus_Click(object sender, EventArgs e)
+        {
+            string[] palabras = texto.Split(new char[] { ' ', '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] parrafos = texto.Split(new char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+            MessageBox.Show("Estadisicas: \n\nPalabras: " + contadorPalabras+ "\nCaracteres(con espacio): "+texto.Length.ToString()
+                + "\nParrafos: "+parrafos.Length.ToString(),
+                "Contador de palabras", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

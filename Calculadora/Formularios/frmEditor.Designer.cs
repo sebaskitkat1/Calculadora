@@ -37,10 +37,12 @@
             salirToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator1 = new ToolStripSeparator();
             stsEditor = new StatusStrip();
+            tssStatus = new ToolStripStatusLabel();
             rtbEditor = new RichTextBox();
             opfEditor = new OpenFileDialog();
             sfdEditor = new SaveFileDialog();
             mnsEditor.SuspendLayout();
+            stsEditor.SuspendLayout();
             SuspendLayout();
             // 
             // mnsEditor
@@ -62,49 +64,59 @@
             // nuevoToolStripMenuItem
             // 
             nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
-            nuevoToolStripMenuItem.Size = new Size(180, 22);
+            nuevoToolStripMenuItem.Size = new Size(150, 22);
             nuevoToolStripMenuItem.Text = "Nuevo";
             nuevoToolStripMenuItem.Click += nuevoToolStripMenuItem_Click;
             // 
             // abrirToolStripMenuItem
             // 
             abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
-            abrirToolStripMenuItem.Size = new Size(180, 22);
+            abrirToolStripMenuItem.Size = new Size(150, 22);
             abrirToolStripMenuItem.Text = "Abrir";
             abrirToolStripMenuItem.Click += abrirToolStripMenuItem_Click;
             // 
             // guardarToolStripMenuItem
             // 
             guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
-            guardarToolStripMenuItem.Size = new Size(180, 22);
+            guardarToolStripMenuItem.Size = new Size(150, 22);
             guardarToolStripMenuItem.Text = "Guardar";
             guardarToolStripMenuItem.Click += guardarToolStripMenuItem_Click;
             // 
             // guardarComoToolStripMenuItem
             // 
             guardarComoToolStripMenuItem.Name = "guardarComoToolStripMenuItem";
-            guardarComoToolStripMenuItem.Size = new Size(180, 22);
+            guardarComoToolStripMenuItem.Size = new Size(150, 22);
             guardarComoToolStripMenuItem.Text = "Guardar como";
             guardarComoToolStripMenuItem.Click += guardarComoToolStripMenuItem_Click;
             // 
             // salirToolStripMenuItem
             // 
             salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            salirToolStripMenuItem.Size = new Size(180, 22);
+            salirToolStripMenuItem.Size = new Size(150, 22);
             salirToolStripMenuItem.Text = "Salir";
+            salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(177, 6);
+            toolStripSeparator1.Size = new Size(147, 6);
             // 
             // stsEditor
             // 
+            stsEditor.Items.AddRange(new ToolStripItem[] { tssStatus });
             stsEditor.Location = new Point(0, 428);
             stsEditor.Name = "stsEditor";
             stsEditor.Size = new Size(800, 22);
             stsEditor.TabIndex = 1;
             stsEditor.Text = "statusStrip1";
+            stsEditor.ItemClicked += stsEditor_ItemClicked;
+            // 
+            // tssStatus
+            // 
+            tssStatus.Name = "tssStatus";
+            tssStatus.Size = new Size(60, 17);
+            tssStatus.Text = "0 Palabras";
+            tssStatus.Click += tssStatus_Click;
             // 
             // rtbEditor
             // 
@@ -137,6 +149,8 @@
             Text = "Editor de Texto";
             mnsEditor.ResumeLayout(false);
             mnsEditor.PerformLayout();
+            stsEditor.ResumeLayout(false);
+            stsEditor.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -155,5 +169,6 @@
         private ToolStripMenuItem guardarComoToolStripMenuItem;
         private OpenFileDialog opfEditor;
         private SaveFileDialog sfdEditor;
+        private ToolStripStatusLabel tssStatus;
     }
 }
